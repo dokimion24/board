@@ -1,0 +1,68 @@
+# Dependencies
+node_modules
+**/node_modules
+.pnp
+.pnp.js
+
+# Build outputs
+**/dist
+**/build
+**/out
+**/.next
+**/.nuxt
+**/.output
+**/.vercel
+**/.turbo
+
+# Testing
+**/coverage
+
+# Environment variables
+.env
+**/.env
+**/.env.*
+!**/.env.example
+
+# Database
+**/*.db
+**/*.db-journal
+**/.prisma/client
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.DS_Store
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Production
+/dist
+/build
+
+# Cache
+.cache
+.temp
+.eslintcache
+
+# Bundle size analysis
+stats.html
+bundle-stats.json
