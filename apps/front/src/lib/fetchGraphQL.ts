@@ -1,12 +1,13 @@
 import { print } from "graphql";
+import { GRAPHQL_ENDPOINT } from "./constants";
 
 export async function fetchGraphQL(
-  query: string 
+  query: string,
   variables?: Record<string, unknown>
 ) {
   const queryString = typeof query === "string" ? query : print(query);
 
-  const response = await fetch("http://localhost:3000/graphql", {
+  const response = await fetch(GRAPHQL_ENDPOINT, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
