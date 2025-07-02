@@ -1,8 +1,11 @@
+"use client";
+
 import { Post } from "@/lib/types/modelTypes";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "starkds-ui/Button";
+import { Checkbox } from "starkds-ui/Checkbox";
 import { Icons } from "./icons";
-import { Button } from "./ui/button";
 
 type Props = Partial<Post>;
 
@@ -37,8 +40,11 @@ export default function PostCard({
         {content}
       </p>
       <Link href={`/posts/${slug}`}>
-        <Button>Read More</Button>
+        <Button variant="primary" size="sm">
+          Read More
+        </Button>
       </Link>
+      <Checkbox name="read" />
     </div>
   );
 }
