@@ -7,6 +7,13 @@ settings:
 importers:
 
   .:
+    dependencies:
+      graphql:
+        specifier: ^16.10.0
+        version: 16.10.0
+      zod:
+        specifier: ^3.25.67
+        version: 3.25.67
     devDependencies:
       turbo:
         specifier: ^2.5.0
@@ -180,6 +187,9 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
+      graphql-tag:
+        specifier: ^2.12.6
+        version: 2.12.6(graphql@16.10.0)
       lucide-react:
         specifier: ^0.488.0
         version: 0.488.0(react@19.1.0)
@@ -198,6 +208,9 @@ importers:
       react-dom:
         specifier: ^19.0.0
         version: 19.1.0(react@19.1.0)
+      starkds-ui:
+        specifier: ^0.2.3
+        version: 0.2.3
       tailwind-merge:
         specifier: ^3.2.0
         version: 3.2.0
@@ -4441,6 +4454,10 @@ packages:
       '@types/react':
         optional: true
 
+  react@18.3.1:
+    resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
+    engines: {node: '>=0.10.0'}
+
   react@19.1.0:
     resolution: {integrity: sha512-FS+XFBNvn3GTAWq26joslQgWNoFu08F4kl0J4CgdNKADkdSGXQyTCnKteIAJy96Br6YbpEU1LSzV5dYtjMkMDg==}
     engines: {node: '>=0.10.0'}
@@ -4688,6 +4705,12 @@ packages:
   stack-utils@2.0.6:
     resolution: {integrity: sha512-XlkWvfIm6RmsWtNJx+uqtKLS8eqFbxUg0ZzLXqY0caEy9l7hruX8IpiDnjsLavoBgqCCR71TqWO8MaXYheJ3RQ==}
     engines: {node: '>=10'}
+
+  starkds-icons@0.2.1:
+    resolution: {integrity: sha512-VZU7CqqolIpM1Ko/K2SRV2L1SkO3+CIKHeFofktzcD/febJWGdT5J4B+WB9tW9nSrbHvZKfKU1cb3AgcSz2VKQ==}
+
+  starkds-ui@0.2.3:
+    resolution: {integrity: sha512-J6UJ8bC+xRW65n+smKjBOKAAbvCmac87Xgo7VqG9M42+9LxrNruEadTVLAPV3HtZUf4ZBoN04MQ9y08/WwOHnw==}
 
   statuses@2.0.1:
     resolution: {integrity: sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ==}
@@ -5259,6 +5282,9 @@ packages:
   yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+  zod@3.25.67:
+    resolution: {integrity: sha512-idA2YXwpCdqUSKRCACDE6ItZD9TZzy3OZMtpfLoh6oPR47lipysRrJfjzMqFxQ3uJuUPyUeWe1r9vLH33xO/Qw==}
 
 snapshots:
 
@@ -10057,6 +10083,10 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.1.0
 
+  react@18.3.1:
+    dependencies:
+      loose-envify: 1.4.0
+
   react@19.1.0: {}
 
   readable-stream@2.3.8:
@@ -10363,6 +10393,13 @@ snapshots:
   stack-utils@2.0.6:
     dependencies:
       escape-string-regexp: 2.0.0
+
+  starkds-icons@0.2.1: {}
+
+  starkds-ui@0.2.3:
+    dependencies:
+      react: 18.3.1
+      starkds-icons: 0.2.1
 
   statuses@2.0.1: {}
 
@@ -10974,3 +11011,5 @@ snapshots:
   yn@3.1.1: {}
 
   yocto-queue@0.1.0: {}
+
+  zod@3.25.67: {}
