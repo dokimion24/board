@@ -14,10 +14,12 @@ const SignUpForm = () => {
       )}
       <div>
         <Input
-          label="이름"
+          label="Name"
           name="name"
           placeholder="이름을 입력하세요"
+          defaultValue={state?.data?.name}
           error={!!state?.errors?.name}
+          helperText={state?.errors?.name?.[0]}
         />
       </div>
       <div>
@@ -26,6 +28,8 @@ const SignUpForm = () => {
           name="email"
           placeholder="john@example.com"
           error={!!state?.errors?.email}
+          defaultValue={state?.data?.email}
+          helperText={state?.errors?.email?.[0]}
         />
       </div>
       <div>
@@ -35,6 +39,8 @@ const SignUpForm = () => {
           type="password"
           placeholder="비밀번호를 입력하세요"
           error={!!state?.errors?.password}
+          defaultValue={state?.data?.password}
+          helperText={state?.errors?.password?.[0]}
         />
       </div>
       <SubmitButton>Sign Up</SubmitButton>

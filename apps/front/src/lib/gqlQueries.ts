@@ -13,7 +13,7 @@ export const GET_POSTS = gql`
 `;
 
 export const CREATE_USER_MUTATION = gql`
-  mutation createUser($input: CreateUserInput) {
+  mutation createUser($input: CreateUserInput!) {
     createUser(createUserInput: $input) {
       id
       name

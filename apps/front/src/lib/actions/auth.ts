@@ -8,32 +8,32 @@ import { SignUpFormState } from "../types/formState";
 import { SignUpFormSchema } from "../zodSchemas/signupFormSchema";
 
 export async function signUp(
-  prevState: SignUpFormState,
+  state: SignUpFormState,
   formData: FormData
 ): Promise<SignUpFormState> {
   const validatedFields = SignUpFormSchema.safeParse(
     Object.fromEntries(formData.entries())
   );
 
-  if (!validatedFields.success) {
+  if (!validatedFields.success)
     return {
+      data: Object.fromEntries(formData.entries()),
       errors: validatedFields.error.flatten().fieldErrors,
     };
-  }
 
-  const data = await fetchGraphQL(print(CREATE_USER_MUTATION), {
-    input: {
-      ...validatedFields.data,
-    },
-  });
-
-  if (data.errors) {
-    return {
-      errors: {
-        name: data.errors[0].message,
+  const data = await fetchGraphQL<SignUpFormState>(
+    print(CREATE_USER_MUTATION),
+    {
+      input: {
+        ...validatedFields.data,
       },
-      message: "Invalid Credentials",
+    }
+  );
+
+  if (data?.errors)
+    return {
+      data: Object.fromEntries(formData.entries()),
+      message: "Something went wrong",
     };
-  }
   redirect("/auth/signin");
 }
