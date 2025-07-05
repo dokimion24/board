@@ -1,9 +1,6 @@
 import { GRAPHQL_ENDPOINT } from "./constants";
 
-export async function fetchGraphQL<T = unknown>(
-  query: string,
-  variables = {}
-): Promise<T> {
+export async function fetchGraphQL(query: string, variables = {}) {
   const response = await fetch(GRAPHQL_ENDPOINT, {
     method: "POST",
     headers: {
