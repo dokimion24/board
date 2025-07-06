@@ -1,13 +1,14 @@
 "use server";
 
 import { print } from "graphql";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { fetchGraphQL } from "../fetchGraphQL";
 import { CREATE_USER_MUTATION, SIGN_IN_MUTATION } from "../gqlQueries";
+import { createSession } from "../session";
 import { SignUpFormState } from "../types/formState";
 import { LoginFormSchema } from "../zodSchemas/loginFormSchema";
 import { SignUpFormSchema } from "../zodSchemas/signupFormSchema";
-import { revalidatePath } from "next/cache";
 
 export async function signUp(
   state: SignUpFormState,
@@ -57,13 +58,21 @@ export async function signIn(
     },
   });
 
-  if (data?.errors)
+  if (data?.errors) {
     return {
       data: Object.fromEntries(formData.entries()),
       message: "Invalid Credentials",
     };
+  }
 
-  //Todo: create a session
+  await createSession({
+    user: {
+      id: data?.signIn?.id,
+      name: data?.signIn?.name,
+      avatar: data?.signIn?.avatar,
+    },
+    accessToken: data?.signIn?.accessToken,
+  });
   revalidatePath("/");
   redirect("/");
 }
