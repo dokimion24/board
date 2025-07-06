@@ -1,5 +1,6 @@
 import Hero from "@/components/hero";
 import Posts from "@/components/posts";
+import Navbar from "@/components/ui/navbar";
 import { getPosts } from "@/lib/actions/postActions";
 import { DEFAULT_PAGE_SIZE } from "@/lib/constants";
 import { getSession } from "@/lib/session";
@@ -21,6 +22,7 @@ export default async function Home({ searchParams }: Props) {
 
   return (
     <main>
+      <Navbar />
       <Hero />
       <Posts
         posts={posts}
